@@ -4,6 +4,7 @@ using namespace std;
 
 int main()
 {
-	cout << " hello omar";
+	cout << " hello mr.eng";
+	cout << " welcome to inventory management system";
 
 }
