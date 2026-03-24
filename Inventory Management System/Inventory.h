@@ -17,37 +17,23 @@ public:
 	// team A --------------------------------- team A
 
 	      //                   rana
-	void addproduct(){
-	
-	
+	void addproduct(int id, string name, double price, int quantity) {
+
 	}
 	      //                   jana
-	void updatequantity() {
-
-
-
+	void updatequantity(int id, int quantity){
 	}
          //                    habiba
-	void removeproduct() {
-
-
-
+	void removeproduct(int id) {
 	}
        //                      rawan 
 	void displayinventory() {
-
-
-
 	}
 	double computetotalvalue() {
-
 	}
 
 	// TEAM B ---------------------           ------------------
 	void lowstockalert(int threshold) {
-
-
-
 	}
 
 
