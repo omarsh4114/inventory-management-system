@@ -6,7 +6,7 @@
 #include<sstream>
 #include"Product.h"
 using namespace std;
-class inventory
+class Inventory
 {
 private:
 	 vector <Product> products;
@@ -16,25 +16,19 @@ public:
 
 	// team A --------------------------------- team A
 
-	      //                   rana
-	void addproduct(int id, string name, double price, int quantity) {
+	      //                   
+	void addproduct(int id, string name, double price, int quantity);
+	      //                   
+	void updatequantity(int id, int quantity);
 
-	}
-	      //                   jana
-	void updatequantity(int id, int quantity){
-	}
-         //                    habiba
-	void removeproduct(int id) {
-	}
-       //                      rawan 
-	void displayinventory() {
-	}
-	double computetotalvalue() {
-	}
+	void removeproduct(int id);
 
-	// TEAM B ---------------------           ------------------
-	void lowstockalert(int threshold) {
-	}
+	void displayinventory();
+
+	double computetotalvalue();
+
+	// team B --------------------------------- team B
+	void lowstockalert(int threshold);
 
 
 

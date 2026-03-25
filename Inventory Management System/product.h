@@ -10,20 +10,12 @@ private:
 	double price;
 	int quantity;
 public:
-	Product(int id, string name, double price, int quantity) {};
+	Product(int id, string name, double price, int quantity) ;
 
-	int getId() {
-		return id;
-	};
-	string getName() {
-		return name;
-	};
-	double getPrice() {
-		return price;
-	};
-	int getQuantity() {
-		return quantity;
-	};
+	int getId() ;
+	string getName();
+	double getPrice();
+	int getQuantity();
 
 	
 	void setName(string name) {};
