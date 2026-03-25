@@ -9,7 +9,7 @@ using namespace std;
 //===================================================           TEAM A
 //     Rana
 // check if ID already exists
-void inventory::addproduct(int id, string name, double price, int quantity) {
+void Inventory::addproduct(int id, string name, double price, int quantity) {
 	for (int i = 0; i < products.size(); i++) {
 		if (products[i].getId() == id) {
 			cout << " Error! this product id already exists" << endl ;
@@ -21,34 +21,29 @@ void inventory::addproduct(int id, string name, double price, int quantity) {
 	products.push_back(newProduct);
 	cout << " Product added successfully " << endl;
 
-	// display all products ( gad3na meny )
-	void displayInventory() {
-		for (int i = 0; i < products.size; i++) {
-			products[i].display();
-		}
-	}
 }
 
 //     Jana
-void inventory::updatequantity(int id, int quantity) {
+void Inventory::updatequantity(int id, int quantity) {
 
 }
 //     Habiba
-void inventory::removeproduct(int id) {
+void Inventory::removeproduct(int id) {
 
 }
 //     rawan
-void inventory::displayinventory() {
+void Inventory::displayinventory() {
 
 }
 
-double inventory::computetotalvalue() {
-
+double Inventory::computetotalvalue() {
+	return 0.0;
 }
 
 
 //--- -------------               Team B
 
-void inventory::lowstockalert(int threshold) {
+void Inventory::lowstockalert(int threshold) {
 
 }
+
