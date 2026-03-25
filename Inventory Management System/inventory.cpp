@@ -13,6 +13,7 @@ void inventory::addproduct(int id, string name, double price, int quantity) {
 	for (int i = 0; i < products.size(); i++) {
 		if (products[i].getId() == id) {
 			cout << " Error! this product id already exists" << endl ;
+			return;
 		}
 	}
 	// add new product 
