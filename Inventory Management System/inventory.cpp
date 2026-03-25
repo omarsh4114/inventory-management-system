@@ -8,9 +8,25 @@ using namespace std;
 
 //===================================================           TEAM A
 //     Rana
+// check if ID already exists
 void inventory::addproduct(int id, string name, double price, int quantity) {
+	for (int i = 0; i < products.size(); i++) {
+		if (products[i].getId() == id) {
+			cout << " Error! this product id already exists" << endl ;
+		}
+	}
+	// add new product 
+	Product newProduct(int id, string name, double price, int quantity);
+	cout << " Product added successfully " << endl;
 
+	// display all products ( gad3na meny )
+	void displayInventory() {
+		for (int i = 0; i < products.size; i++) {
+			products[i].display();
+		}
+	}
 }
+
 //     Jana
 void inventory::updatequantity(int id, int quantity) {
 
