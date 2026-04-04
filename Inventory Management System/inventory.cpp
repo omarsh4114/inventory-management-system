@@ -24,9 +24,29 @@ void Inventory::addproduct(int id, string name, double price, int quantity) {
 }
 
 //     Jana
-void Inventory::updatequantity(int id, int quantity) {
+void Inventory::updatequantity(int id, int quantity)
+    {
+        // Check if quantity is negative
+        if (quantity < 0)
+        {
+            cout << "Error: Quantity cannot be negative." << endl;
+            return;
+        }
 
-}
+        // Search for the product by ID
+        for (int i = 0; i < products.size(); i++)
+        {
+            if (products[i].getId() == id)
+            {
+                products[i].setQuantity(quantity);
+                cout << "Quantity updated successfully." << endl;
+                return;
+            }
+        }
+
+        // If product not found
+        cout << "Error: Product with ID " << id << " not found." << endl;
+    }
 //     Habiba
 void Inventory::removeproduct(int id) {
 
