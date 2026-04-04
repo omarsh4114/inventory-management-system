@@ -4,6 +4,7 @@
 #include<vector>
 #include<fstream>
 #include<sstream>
+#include <iomanip>
 using namespace std;
 
 //===================================================           TEAM A
@@ -33,11 +34,31 @@ void Inventory::removeproduct(int id) {
 }
 //     rawan
 void Inventory::displayinventory() {
+    if (products.empty()) {
+        cout << "No products in inventory." << endl;
+        return;
+    }
+    cout << left << setw(8) << "ID"
+        << setw(20) << "Name"
+        << setw(10) << "Price"
+        << setw(10) << "Quantity" << endl;
+    cout << string(48, '-') << endl;
+    for (int i = 0; i < products.size(); i++) {
+        cout << left << setw(8) << products[i].getId()
+            << setw(20) << products[i].getName()
+            << setw(10) << products[i].getPrice()
+            << setw(10) << products[i].getQuantity() << endl;
+    }
+    cout << string(48, '-') << endl;
 
 }
 
 double Inventory::computetotalvalue() {
-	return 0.0;
+    double total = 0.0;
+    for (int i = 0; i < products.size(); i++) {
+        total += products[i].getPrice() * products[i].getQuantity();
+    }
+return total;
 }
 
 
