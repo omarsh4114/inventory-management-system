@@ -12,11 +12,10 @@ private:
 public:
 	Product(int id, string name, double price, int quantity) ;
 
-	int getId() ;
-	string getName();
-	double getPrice();
-	int getQuantity();
-
+	int getId() const;
+	string getName() const;
+	double getPrice() const;
+	int getQuantity() const;
 	
 	void setName(string name) {};
 	void setPrice(double price) {};

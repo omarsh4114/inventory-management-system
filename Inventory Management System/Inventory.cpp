@@ -5,7 +5,7 @@
 #include<fstream>
 #include<sstream>
 #include <iomanip>
-#include<iomanip>
+#include "Product.h"
 using namespace std;
 
 //===================================================           TEAM A
@@ -102,18 +102,17 @@ return total;
 }
 
 
-//--- -------------          hossam     Team B
-
+//--- -------------   hoss            Team B
 void Inventory::lowStockAlert(int threshold) {
     bool foundLowStock = false;
 
-    for (const Product& product : products) {
-        if (product.getQuantity() <= threshold) {
+    for (const Product& p : products) {
+        if (p.getQuantity() <= threshold) {
             cout << "LOW STOCK ALERT!\n";
-            cout << "ID: " << product.getId() << endl;
-            cout << "Name: " << product.getName() << endl;
-            cout << "Price: " << product.getPrice() << endl;
-            cout << "Quantity: " << product.getQuantity() << endl;
+            cout << "ID: " << p.getId() << endl;
+            cout << "Name: " << p.getName() << endl;
+            cout << "Price: " << p.getPrice() << endl;
+            cout << "Quantity: " << p.getQuantity() << endl;
             cout << "------------------------\n";
             foundLowStock = true;
         }
@@ -123,7 +122,6 @@ void Inventory::lowStockAlert(int threshold) {
         cout << "All products are sufficiently stocked.\n";
     }
 }
-
 
 
 
