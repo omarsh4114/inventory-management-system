@@ -28,7 +28,7 @@ public:
 	double computetotalvalue();
 
 	// team B --------------------------------- team B
-	void lowstockalert(int threshold);
+	void lowStockAlert(int threshold);
 
 
 
