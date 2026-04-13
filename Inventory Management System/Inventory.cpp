@@ -102,9 +102,28 @@ return total;
 }
 
 
-//--- -------------               Team B
+//--- -------------          hossam     Team B
 
-void Inventory::lowstockalert(int threshold) {
+void Inventory::lowStockAlert(int threshold) {
+    bool foundLowStock = false;
 
+    for (const Product& product : products) {
+        if (product.getQuantity() <= threshold) {
+            cout << "LOW STOCK ALERT!\n";
+            cout << "ID: " << product.getId() << endl;
+            cout << "Name: " << product.getName() << endl;
+            cout << "Price: " << product.getPrice() << endl;
+            cout << "Quantity: " << product.getQuantity() << endl;
+            cout << "------------------------\n";
+            foundLowStock = true;
+        }
+    }
+
+    if (!foundLowStock) {
+        cout << "All products are sufficiently stocked.\n";
+    }
 }
+
+
+
 
