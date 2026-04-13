@@ -126,6 +126,7 @@
     <ClCompile Include="Inventory Management System.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Product.cpp" />
+    <ClCompile Include="Test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Inventory.h" />
