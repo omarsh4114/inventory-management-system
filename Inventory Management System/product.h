@@ -17,9 +17,9 @@ public:
 	double getPrice() const;
 	int getQuantity() const;
 	
-	void setName(string name) {};
-	void setPrice(double price) {};
-	void setQuantity(int quantity) {};
+	void setName(string name) ;
+	void setPrice(double price) ;
+	void setQuantity(int quantity) ;
 
 };
 
