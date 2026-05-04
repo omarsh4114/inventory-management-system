@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "Inventory.h"
-
+#include "DiscountedProduct.h"
 using namespace std;
 
 int main() {
@@ -14,6 +14,7 @@ int main() {
         cout << "\n=== Inventory Management System ===" << endl;
         cout << "1. Add Product\n2. Update Quantity\n3. Remove Product\n4. Display Inventory" << endl;
         cout << "5. Low Stock Alert\n6. Compute Total Value\n7. Save & Exit" << endl;
+        cout << "8. Search by ID (Bonus)\n9. Total Product Count (Bonus)" << endl;
         cout << "====================================" << endl;
         cout << "Enter your choice: ";
 
@@ -72,7 +73,18 @@ int main() {
             myInv.saveToFile(filename);
             cout << "Data saved to " << filename << ". Closing..." << endl;
         }
-
+        else if (choice == 8) {
+            int id;
+            cout << "Enter Product ID to search: ";
+            cin >> id;
+            myInv.searchById(id); // Calling your new Bonus 1
+        }
+        else if (choice == 9) {
+            int count = myInv.countTotalProducts(); // Calling your new Bonus 2
+            cout << "------------------------------------" << endl;
+            cout << "Total different products in stock: " << count << endl;
+            cout << "------------------------------------" << endl;
+        }
     } while (choice != 7);
 
     return 0;

@@ -37,3 +37,10 @@ double Product::getPrice() const {
 int Product::getQuantity() const { 
     return quantity; 
 }
+//-------------*****-------------------------
+void Product::display() const {
+    cout << "ID: " << id
+        << " | Name: " << name
+        << " | Price: $" << price
+        << " | Qty: " << quantity << endl;
+}

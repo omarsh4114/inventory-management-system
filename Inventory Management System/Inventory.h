@@ -11,8 +11,8 @@ class Inventory
 private:
 	 vector <Product> products;
 public:
-	void saveToFile(string IMS) {};
-	void loadToFile(string IMS) {};
+	void saveToFile(string IMS) ;
+	void loadFromFile(string IMS);
 
 	// team A --------------------------------- team A
 
@@ -28,9 +28,10 @@ public:
 	double computetotalvalue();
 
 	// team B --------------------------------- team B
-	void lowstockalert(int threshold);
-
-
+	void lowStockAlert(int threshold);
+	//----------------------------------------
+	void searchById(int id);
+	int countTotalProducts();
 
 
 };

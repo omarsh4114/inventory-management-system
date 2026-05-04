@@ -5,9 +5,68 @@
 #include<fstream>
 #include<sstream>
 #include <iomanip>
-#include "Product.h"
+#include<iomanip>
 using namespace std;
 
+
+void Inventory::saveToFile(string IMS) {
+    ofstream outFile(IMS);
+    if (!outFile) {
+        cout << "Error: Could not save to file!" << endl;
+        return;
+    }
+    for (const auto& p : products) {
+        outFile << p.getId() << "," << p.getName() << ","
+            << p.getPrice() << "," << p.getQuantity() << endl;
+    }
+    outFile.close();
+}
+
+void Inventory::loadFromFile(string IMS) {
+    ifstream inFile(IMS);
+
+    // 1. Connection Check: Tell the user if the file exists
+    if (!inFile) {
+        cout << "Notice: Could not open '" << IMS << "'. Creating new database." << endl;
+        return;
+    }
+
+    products.clear(); // Clear memory so we don't double the items on reload
+    string line;
+    int count = 0;
+
+    // 2. Line-by-Line Reading
+    while (getline(inFile, line)) {
+        if (line.empty()) continue; // Skip blank lines at the end of the file
+
+        stringstream ss(line);
+        string idStr, name, priceStr, qtyStr;
+
+        // 3. Parsing using Comma as the Delimiter
+        if (getline(ss, idStr, ',') &&
+            getline(ss, name, ',') &&
+            getline(ss, priceStr, ',') &&
+            getline(ss, qtyStr, ',')) {
+
+            try {
+                // Convert strings to actual numbers
+                int id = stoi(idStr);
+                double price = stod(priceStr);
+                int qty = stoi(qtyStr);
+
+                // Add to our vector
+                products.push_back(Product(id, name, price, qty));
+                count++;
+            }
+            catch (...) {
+                cout << "Error: Skipping a corrupted line in file." << endl;
+            }
+        }
+    }
+
+    inFile.close();
+    cout << "Success: Loaded " << count << " items from " << IMS << endl;
+}
 //===================================================           TEAM A
 //     Rana
 // check if ID already exists
@@ -75,22 +134,16 @@ void Inventory::removeproduct(int id) {
 //     rawan
 void Inventory::displayinventory() {
     if (products.empty()) {
-        cout << "No products in inventory." << endl;
+        cout << "Inventory is empty." << endl;
         return;
     }
-    cout << left << setw(8) << "ID"
-        << setw(20) << "Name"
-        << setw(10) << "Price"
-        << setw(10) << "Quantity" << endl;
-    cout << string(48, '-') << endl;
-    for (int i = 0; i < products.size(); i++) {
-        cout << left << setw(8) << products[i].getId()
-            << setw(20) << products[i].getName()
-            << setw(10) << products[i].getPrice()
-            << setw(10) << products[i].getQuantity() << endl;
+    cout << "\n--- Current Inventory ---" << endl;
+    for (const auto& p : products) {
+        cout << "ID: " << p.getId()
+            << " | Name: " << p.getName()
+            << " | Price: " << p.getPrice()
+            << " | Qty: " << p.getQuantity() << endl;
     }
-    cout << string(48, '-') << endl;
-
 }
 
 double Inventory::computetotalvalue() {
@@ -106,13 +159,13 @@ return total;
 void Inventory::lowStockAlert(int threshold) {
     bool foundLowStock = false;
 
-    for (const Product& p : products) {
-        if (p.getQuantity() <= threshold) {
+    for (const Product& product : products) {
+        if (product.getQuantity() <= threshold) {
             cout << "LOW STOCK ALERT!\n";
-            cout << "ID: " << p.getId() << endl;
-            cout << "Name: " << p.getName() << endl;
-            cout << "Price: " << p.getPrice() << endl;
-            cout << "Quantity: " << p.getQuantity() << endl;
+            cout << "ID: " << product.getId() << endl;
+            cout << "Name: " << product.getName() << endl;
+            cout << "Price: " << product.getPrice() << endl;
+            cout << "Quantity: " << product.getQuantity() << endl;
             cout << "------------------------\n";
             foundLowStock = true;
         }
@@ -123,5 +176,17 @@ void Inventory::lowStockAlert(int threshold) {
     }
 }
 
+void Inventory::searchById(int id) {
+    for (const auto& p : products) {
+        if (p.getId() == id) {
+            cout << "Product Found: " << p.getName() << " | Price: $" << p.getPrice() << endl;
+            return;
+        }
+    }
+    cout << "ID " << id << " not found in the system." << endl;
+}
 
+int Inventory::countTotalProducts() {
+    return products.size(); // Returns the count of items in your vector
+}
 
