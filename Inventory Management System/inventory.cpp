@@ -176,5 +176,17 @@ void Inventory::lowStockAlert(int threshold) {
     }
 }
 
+void Inventory::searchById(int id) {
+    for (const auto& p : products) {
+        if (p.getId() == id) {
+            cout << "Product Found: " << p.getName() << " | Price: $" << p.getPrice() << endl;
+            return;
+        }
+    }
+    cout << "ID " << id << " not found in the system." << endl;
+}
 
+int Inventory::countTotalProducts() {
+    return products.size(); // Returns the count of items in your vector
+}
 

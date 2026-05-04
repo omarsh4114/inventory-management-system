@@ -29,8 +29,9 @@ public:
 
 	// team B --------------------------------- team B
 	void lowStockAlert(int threshold);
-
-
+	//----------------------------------------
+	void searchById(int id);
+	int countTotalProducts();
 
 
 };
